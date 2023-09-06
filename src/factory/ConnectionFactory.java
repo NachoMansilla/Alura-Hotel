@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-    private DataSource dataSource;
+    final private DataSource dataSource;
 
     public ConnectionFactory() {
         var pooledDataSource = new ComboPooledDataSource();

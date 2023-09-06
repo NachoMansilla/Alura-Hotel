@@ -5,7 +5,7 @@ import factory.ConnectionFactory;
 
 public class UsuarioController {
 
-    private UsuarioDAO usuarioDAO;
+    final private UsuarioDAO usuarioDAO;
 
     public UsuarioController() {
         this.usuarioDAO = new UsuarioDAO();

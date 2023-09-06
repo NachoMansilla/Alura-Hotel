@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class UsuarioDAO {
 
-    private Connection con = new ConnectionFactory().recuperaConexion();
+    final private Connection con = new ConnectionFactory().recuperaConexion();
 
     public boolean authUser(String username, String password){
 
