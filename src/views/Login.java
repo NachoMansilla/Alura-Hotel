@@ -1,5 +1,7 @@
 package views;
 
+import controller.UsuarioController;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -29,6 +31,8 @@ public class Login extends JFrame {
 	private JPasswordField txtContrasena;
 	int xMouse, yMouse;
 	private JLabel labelExit;
+
+	private UsuarioController usuarioController;
 
 	/**
 	 * Launch the application.
@@ -60,7 +64,8 @@ public class Login extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 		
-		
+		this.usuarioController = new UsuarioController();
+
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 788, 527);
 		panel.setBackground(Color.WHITE);
@@ -235,12 +240,12 @@ public class Login extends JFrame {
 	}
 	
 	private void Login() {
-		 String Usuario= "admin";
-	     String Contraseña="admin";
+			String inputUsuario = txtUsuario.getText();
+			String inputPassword = new String (txtContrasena.getPassword());
 
 	        String contrase=new String (txtContrasena.getPassword());
 
-	        if(txtUsuario.getText().equals(Usuario) && contrase.equals(Contraseña)){
+	        if(usuarioController.autenticar(inputUsuario, inputPassword)){
 	            MenuUsuario menu = new MenuUsuario();
 	            menu.setVisible(true);
 	            dispose();	 
